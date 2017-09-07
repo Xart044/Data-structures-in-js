@@ -15,7 +15,7 @@ class Queue{
         this.list = props || [];
         this.length = props.length || 0;
     }
-    add(value){
+    add(...value){
         if(typeof(value) === 'undefined') return;
         this.list.push(...value);
         this.length += value.length;
@@ -30,3 +30,5 @@ class Queue{
         return this.list[0];
     }
 }
+
+module.exports = Queue;
