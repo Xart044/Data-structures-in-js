@@ -6,27 +6,27 @@
  * 
  * @method add : Add value to the end of list
  * @method remove : Remove value from the start of list
- * @method get : Return first value
+ * @method peek : Return first value
  * 
  * @see http://www.studytonight.com/data-structures/queue-data-structure
  */
 class Queue{
-    constructor (props) {
-        super(props)
-        this.list = [];
-        this.length = 0;
+    constructor (...props) {
+        this.list = props || [];
+        this.length = props.length || 0;
     }
     add(value){
-        list.push(value);
-        ++list;
+        if(typeof(value) === 'undefined') return;
+        this.list.push(...value);
+        this.length += value.length;
     }
     remove(){
-        if(list.length === 0) return;
-        list.shift();
-        --list;
+        if(this.length === 0) return;
+        this.list.shift();
+        --this.length;
     }
-    get(){
-        if(list.length === 0) return;
-        return list[0];
+    peek(){
+        if(this.length === 0) return;
+        return this.list[0];
     }
 }

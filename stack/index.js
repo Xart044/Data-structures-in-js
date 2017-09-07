@@ -6,7 +6,7 @@
  * 
  * @method add : Add value to the end of list
  * @method remove : Remove value from the end of list
- * @method get : Return last value
+ * @method peek : Return last value
  * 
  * @see http://www.studytonight.com/data-structures/stack-data-structure
  */
@@ -21,12 +21,12 @@ class Stack{
         this.length += value.length;
     }
     remove(){
-        if(this.list.length === 0) return;
+        if(this.length === 0) return;
         this.list.pop();
         --this.length;
     }
     peek(){
-        if(this.list.length === 0) return;
+        if(this.length === 0) return;
         return this.list[this.length-1];
     }
 }
