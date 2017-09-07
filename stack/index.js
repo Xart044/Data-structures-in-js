@@ -11,22 +11,24 @@
  * @see http://www.studytonight.com/data-structures/stack-data-structure
  */
 class Stack{
-    constructor (props) {
-        super(props)
-        this.list = [];
-        this.length = 0;
+    constructor (...props) {
+        this.list = props || [];
+        this.length = props.length || 0;
     }
-    add(value){
-        list.push(value);
-        ++list;
+    add(...value){
+        if(typeof(value) === 'undefined') return;
+        this.list.push(...value);
+        this.length += value.length;
     }
     remove(){
-        if(list.length === 0) return;
-        list.pop();
-        --list;
+        if(this.list.length === 0) return;
+        this.list.pop();
+        --this.length;
     }
-    get(){
-        if(list.length === 0) return;
-        return list[length-1];
+    peek(){
+        if(this.list.length === 0) return;
+        return this.list[this.length-1];
     }
 }
+
+module.exports = Stack;
