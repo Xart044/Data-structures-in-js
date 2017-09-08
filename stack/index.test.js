@@ -46,6 +46,14 @@ describe('Stack data structure test', () => {
             expect(stackPrototypeHasPeekMethod).toBeTruthy();            
         });
 
+        it('it has method isEmpty()', () => {
+            const stackHasIsEmptyMethod = stack.hasOwnProperty('isEmpty'),
+            stackPrototypeHasIsEmptyMethod = stack.constructor.prototype.hasOwnProperty('isEmpty');
+            
+            expect(stackHasIsEmptyMethod).toBeFalsy();
+            expect(stackPrototypeHasIsEmptyMethod).toBeTruthy();            
+        });
+
     });    
 
     describe('Stack creation test', () => {
@@ -106,7 +114,7 @@ describe('Stack data structure test', () => {
             expect(stack.length).toEqual(0);  
         });    
     });
-    describe('Stack method get test', () => {
+    describe('Stack method peek test', () => {
         it('Peek method return last value', ()=>{
             const stack = new Stack(1,2);
 
@@ -117,6 +125,19 @@ describe('Stack data structure test', () => {
 
             stack.remove();
             expect(stack.peek()).toEqual(undefined);            
+        });
+    });
+    describe('Stack method isEmpty test', () => {
+        it('isEmpty return true if stack is empty and false if its not', ()=>{
+            const stack = new Stack(1);
+
+            expect(stack.isEmpty()).toBeFalsy();   
+            
+            stack.remove();
+            expect(stack.isEmpty()).toBeTruthy();
+
+            stack.remove();
+            expect(stack.isEmpty()).toBeTruthy();           
         });
     });
 });

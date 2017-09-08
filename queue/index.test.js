@@ -46,6 +46,14 @@ describe('Queue data structure test', () => {
             expect(queuePrototypeHasPeekMethod).toBeTruthy();            
         });
 
+        it('it has method isEmpty()', () => {
+            const queueHasIsEmptyMethod = queue.hasOwnProperty('isEmpty'),
+            queuePrototypeHasIsEmptyMethod = queue.constructor.prototype.hasOwnProperty('isEmpty');
+            
+            expect(queueHasIsEmptyMethod).toBeFalsy();
+            expect(queuePrototypeHasIsEmptyMethod).toBeTruthy();            
+        });
+
     });    
 
     describe('Queue creation test', () => {
@@ -117,6 +125,19 @@ describe('Queue data structure test', () => {
 
             queue.remove();
             expect(queue.peek()).toEqual(undefined);            
+        });
+    });
+    describe('Queue method isEmpty test', () => {
+        it('isEmpty return true if queue is empty and false if its not', ()=>{
+            const queue = new Queue(1);
+
+            expect(queue.isEmpty()).toBeFalsy();   
+            
+            queue.remove();
+            expect(queue.isEmpty()).toBeTruthy(); 
+
+            queue.remove();
+            expect(queue.isEmpty()).toBeTruthy();         
         });
     });
 });
