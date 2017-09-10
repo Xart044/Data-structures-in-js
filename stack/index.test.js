@@ -22,38 +22,6 @@ describe('Stack data structure test', () => {
             expect(stackListLength).toEqual(0);             
         });
 
-        it('it has method add()', () => {
-            const stackHasAddMethod = stack.hasOwnProperty('add'),
-            stackPrototypeHasAddMethod = stack.constructor.prototype.hasOwnProperty('add');
-            
-            expect(stackHasAddMethod).toBeFalsy();
-            expect(stackPrototypeHasAddMethod).toBeTruthy();
-        });
-
-        it('it has method remove()', () => {
-            const stackHasRemoveMethod = stack.hasOwnProperty('remove'),
-            stackPrototypeHasRemoveMethod = stack.constructor.prototype.hasOwnProperty('remove');
-            
-            expect(stackHasRemoveMethod).toBeFalsy();
-            expect(stackPrototypeHasRemoveMethod).toBeTruthy();           
-        });
-
-        it('it has method peek()', () => {
-            const stackHasPeekMethod = stack.hasOwnProperty('peek'),
-            stackPrototypeHasPeekMethod = stack.constructor.prototype.hasOwnProperty('peek');
-            
-            expect(stackHasPeekMethod).toBeFalsy();
-            expect(stackPrototypeHasPeekMethod).toBeTruthy();            
-        });
-
-        it('it has method isEmpty()', () => {
-            const stackHasIsEmptyMethod = stack.hasOwnProperty('isEmpty'),
-            stackPrototypeHasIsEmptyMethod = stack.constructor.prototype.hasOwnProperty('isEmpty');
-            
-            expect(stackHasIsEmptyMethod).toBeFalsy();
-            expect(stackPrototypeHasIsEmptyMethod).toBeTruthy();            
-        });
-
     });    
 
     describe('Stack creation test', () => {
