@@ -22,38 +22,6 @@ describe('Queue data structure test', () => {
             expect(queueListLength).toEqual(0);             
         });
 
-        it('it has method add()', () => {
-            const queueHasAddMethod = queue.hasOwnProperty('add'),
-            queuePrototypeHasAddMethod = queue.constructor.prototype.hasOwnProperty('add');
-            
-            expect(queueHasAddMethod).toBeFalsy();
-            expect(queuePrototypeHasAddMethod).toBeTruthy();
-        });
-
-        it('it has method remove()', () => {
-            const queueHasRemoveMethod = queue.hasOwnProperty('remove'),
-            queuePrototypeHasRemoveMethod = queue.constructor.prototype.hasOwnProperty('remove');
-            
-            expect(queueHasRemoveMethod).toBeFalsy();
-            expect(queuePrototypeHasRemoveMethod).toBeTruthy();           
-        });
-
-        it('it has method peek()', () => {
-            const queueHasPeekMethod = queue.hasOwnProperty('peek'),
-            queuePrototypeHasPeekMethod = queue.constructor.prototype.hasOwnProperty('peek');
-            
-            expect(queueHasPeekMethod).toBeFalsy();
-            expect(queuePrototypeHasPeekMethod).toBeTruthy();            
-        });
-
-        it('it has method isEmpty()', () => {
-            const queueHasIsEmptyMethod = queue.hasOwnProperty('isEmpty'),
-            queuePrototypeHasIsEmptyMethod = queue.constructor.prototype.hasOwnProperty('isEmpty');
-            
-            expect(queueHasIsEmptyMethod).toBeFalsy();
-            expect(queuePrototypeHasIsEmptyMethod).toBeTruthy();            
-        });
-
     });    
 
     describe('Queue creation test', () => {
