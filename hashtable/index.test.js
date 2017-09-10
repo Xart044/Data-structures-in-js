@@ -10,7 +10,7 @@ const testHashFunc = key => {
         hash = ((hash<<5)-hash)+char;
         hash = hash & hash;
     });
-    return hash;
+    return toString(hash);
 }
 
 describe('HashTable data structure test', () => {
@@ -40,14 +40,7 @@ describe('HashTable data structure test', () => {
             expect(htHasLength).toBeTruthy();            
         });
     });
-    describe('HashTable method hashKey test', () => {
-        const hashTable = new HashTable(testHashFunc);
-        it('it is function', () => {
-            
-            expect(typeof(hashTable.hashKey)).toEqual('function');
-            
-        });
-    });
+
     describe('HashTable method setItem test', () => {
         const hashTable = new HashTable(testHashFunc);
         hashTable.setItem(dummyData.key, dummyData.value);
@@ -75,6 +68,18 @@ describe('HashTable data structure test', () => {
         });       
 
     });
+
+    describe('HashTable method hashKey test', () => {
+        const hashTable = new HashTable(testHashFunc);
+        it('it is function', () => {
+            hashTable.setItem(dummyData.key, dummyData.value);
+
+            expect(typeof(hashTable.hashKey)).toEqual('function');
+            expect(testHashFunc(dummyData.key)).toBe(Object.keys(hashTable.memory)[0]);
+            
+        });
+    });
+
     describe('HashTable method updateItem test', () => {
         const hashTable = new HashTable(testHashFunc);
         hashTable.setItem(dummyData.key, dummyData.value);
