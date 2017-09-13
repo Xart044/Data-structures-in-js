@@ -7,6 +7,7 @@
  * @class Graph
  * 
  * @method addNode  : add new node to the graph
+ * @method haveNode : checks for existing node
  * @method findNode : find node in existing nodes in graph
  * @method addLine  : add line between two node in graph
  * 
@@ -25,6 +26,9 @@ class Graph {
         this.nodes = Object.assign(this.nodes, node);
 
         return this;
+    }
+    haveNode(key){
+        return this.nodes[key] ? true : false;
     }
     findNode(key){
         const node = this.nodes[key];
