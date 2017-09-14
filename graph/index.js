@@ -7,7 +7,7 @@
  * @class Graph
  * 
  * @method addNode  : add new node to the graph
- * @method haveNode : checks for existing node
+ * @method hasNode : checks for existing node
  * @method findNode : find node in existing nodes in graph
  * @method addLine  : add line between two node in graph
  * 
@@ -17,17 +17,32 @@
 class Graph {
     constructor(){
         this.nodes = {};
+        this.nodeCreation = key => {
+            return {
+                [key]: {
+                    name: key,
+                    lines: []
+                }
+            }
+        };
     }
     addNode(key) {
         if(this.nodes[key]){
             return this;
         }
-        const node = {[key]: {name: key, line: []}};
+        const node = this.nodeCreation(key);
         this.nodes = Object.assign(this.nodes, node);
 
         return this;
     }
-    haveNode(key){
+    removeNode(key){
+        const node = this.nodes[key];
+        if(node==undefined) throw new Error(`Node ${key} doesn't exist!`);
+
+        delete this.nodes[key];
+        return this;
+    }
+    hasNode(key){
         return this.nodes[key] ? true : false;
     }
     findNode(key){
@@ -39,15 +54,19 @@ class Graph {
     addLine(startKey, endKey) {
         const startNode = this.findNode(startKey);
         const endNode = this.findNode(endKey);
-    
+
         if(!startNode){
-            throw new Error('startNode should exist!');
+            throw new Error(`Node with key ${startKey} should exist!`);
         }
         if(!endNode){
-            throw new Error('endNode should exist!');
+            throw new Error(`Node with key ${endKey} should exist!`);
         }
 
-        startNode.lines.push(endKey);
+        if(!startNode.lines.includes(endKey)){
+            startNode.lines.push(endKey);
+        }
         return this;
     }
 };
+
+module.exports = Graph;
