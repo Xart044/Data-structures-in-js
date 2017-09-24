@@ -6,9 +6,9 @@
  * 
  * @class LinkedList
  * 
- * @method add    :
- * @method remove :
- * @method get    :
+ * @method add    : add new node into list
+ * @method remove : remove node from list
+ * @method get    : get node 
  * 
  * @see http://www.geeksforgeeks.org/linked-list-set-1-introduction/
  */
@@ -49,7 +49,9 @@ class LinkedList {
         return this;
     }
     get(position) {
-        if (position > this.length) throw new Error('Position is invalid.');
+        if (position > this.length){
+            throw new Error("Position is invalid.");
+        }
         if (this.length === 0) return null;
 
         let current = this.head;
@@ -60,3 +62,5 @@ class LinkedList {
         return current;
     }
 }
+
+module.exports = LinkedList;
