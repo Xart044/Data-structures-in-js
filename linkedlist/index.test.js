@@ -20,17 +20,13 @@ describe('LinkedList test', () =>{
         const linkedlist = new LinkedList();
         it('if the length is 0, return null', () => {
             expect(linkedlist.get(0)).toBeNull();             
-        });    
-        // it('if position bigger than length, throw error', () => {
-        //     const position = linkedlist.length + 5;
-        //     expect(linkedlist.get(position)).toThrow(new Error("Position is invalid."));      
-        // });   
+        });      
         it('get correct element', () => {
             linkedlist.add(0,0);
             expect(linkedlist.get(0)).toEqual({value: 0, next: null})            
         });  
     });   
-    describe('Method get test', () => {
+    describe('Method add test', () => {
         const linkedlist = new LinkedList();
         it('Add correct element on correct place', () => {
             linkedlist.add(0,0);
@@ -39,7 +35,7 @@ describe('LinkedList test', () =>{
             expect(linkedlist.get(0)).toEqual({value: 0, next: {value: 0, next: null}});        
         });        
     });
-    describe('', () => {
+    describe('Method remove test', () => {
         const linkedlist = new LinkedList();
         it('Remove correct element from correct place', () => {
             linkedlist.add(0,0);

@@ -96,12 +96,6 @@ describe('Graph data structure test', () => {
             expect(graph.nodes[key2].lines.includes(key3)).toBeTruthy();
         });
 
-        // it('Throws exception if key doesn\'t exist', () => {
-        //     expect(graph.addLine('key4',key1)).toThrow(`Node with key key4 should exist!`);
-        //     expect(graph.addLine(key1,'key5')).toThrow(`Node with key key5 should exist!`);
-        //     expect(graph.addLine('key4','key5')).toThrow(`Node with key key4 should exist!`);
-        // });
-
     });
 
     describe('Graph method removeNode test', () => {
