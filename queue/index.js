@@ -21,12 +21,12 @@ class Queue{
     }
     add(...value){
         if(typeof(value) === 'undefined') return;
-        this.list.push(...value);
+        this.list = this.list.concat(...value);
         this.length += value.length;
     }
     remove(){
         if(this.length === 0) return;
-        this.list.shift();
+        this.list = this.list.filter((el, ind) => ind !== 0);
         --this.length;
     }
     peek(){

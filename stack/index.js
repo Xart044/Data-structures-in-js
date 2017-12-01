@@ -19,12 +19,12 @@ class Stack{
     }
     add(...value){
         if(typeof(value) === 'undefined') return;
-        this.list.push(...value);
+        this.list = this.list.concat(...value);
         this.length += value.length;
     }
     remove(){
         if(this.length === 0) return;
-        this.list.pop();
+        this.list = this.list.filter((el,ind, array) => ind !== array.length - 1);
         --this.length;
     }
     peek(){

@@ -63,7 +63,7 @@ class Graph {
         }
 
         if(!startNode.lines.includes(endKey)){
-            startNode.lines.push(endKey);
+            startNode.lines = startNode.lines.concat(endKey);
         }
         return this;
     }

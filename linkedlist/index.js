@@ -13,7 +13,7 @@
  * @see http://www.geeksforgeeks.org/linked-list-set-1-introduction/
  */
 class LinkedList {
-    constructor(){
+    constructor() {
         this.head = null;
         this.length = 0;
     }
@@ -22,18 +22,18 @@ class LinkedList {
             value: value,
             next: null
         };
-    
+
         if (position === 0) {
             this.head = node;
         } else {
-              const prev = this.get(position - 1);
-              const current = prev.next;
-              node.next = current;
-              prev.next = node;
+            const prev = this.get(position - 1);
+            const current = prev.next;
+            node.next = current;
+            prev.next = node;
         }
-    
+
         ++this.length;
-        
+
         return this;
     }
     remove(position) {
@@ -45,11 +45,11 @@ class LinkedList {
         }
 
         --this.length;
-        
+
         return this;
     }
     get(position) {
-        if (position > this.length){
+        if (position > this.length) {
             throw new Error("Position is invalid.");
         }
         if (this.length === 0) return null;
